@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Ad;
+use App\Department;
 use Illuminate\Http\Request;
 
-class AdController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class AdController extends Controller
      */
     public function index()
     {
-        $ads = Ad::orderBy('id', 'desc')->get();
-        return view('ads', ['ads' => $ads]);
+        //
     }
 
     /**
@@ -42,21 +41,21 @@ class AdController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Ad  $ad
+     * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function show($slug,Ad $ad)
+    public function show(Department $department)
     {
-        return view('single-ad', ['ad' => $ad->getAd($slug)]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Ad  $ad
+     * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ad $ad)
+    public function edit(Department $department)
     {
         //
     }
@@ -65,10 +64,10 @@ class AdController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Ad  $ad
+     * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ad $ad)
+    public function update(Request $request, Department $department)
     {
         //
     }
@@ -76,10 +75,10 @@ class AdController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Ad  $ad
+     * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ad $ad)
+    public function destroy(Department $department)
     {
         //
     }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Ad;
+use App\Recruiter;
 use Illuminate\Http\Request;
 
-class AdController extends Controller
+class RecruiterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,18 @@ class AdController extends Controller
      */
     public function index()
     {
-        $ads = Ad::orderBy('id', 'desc')->get();
+        //
+    }
+
+    /**
+     * Display a listing of the Recruiters ads.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function ads()
+    {
+        //dd(auth()->id());
+        $ads = Recruiter::find(auth()->id())->ads;
         return view('ads', ['ads' => $ads]);
     }
 
@@ -42,21 +53,21 @@ class AdController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Ad  $ad
+     * @param  \App\Recruiter  $recruiter
      * @return \Illuminate\Http\Response
      */
-    public function show($slug,Ad $ad)
+    public function show(Recruiter $recruiter)
     {
-        return view('single-ad', ['ad' => $ad->getAd($slug)]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Ad  $ad
+     * @param  \App\Recruiter  $recruiter
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ad $ad)
+    public function edit(Recruiter $recruiter)
     {
         //
     }
@@ -65,10 +76,10 @@ class AdController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Ad  $ad
+     * @param  \App\Recruiter  $recruiter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ad $ad)
+    public function update(Request $request, Recruiter $recruiter)
     {
         //
     }
@@ -76,10 +87,10 @@ class AdController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Ad  $ad
+     * @param  \App\Recruiter  $recruiter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ad $ad)
+    public function destroy(Recruiter $recruiter)
     {
         //
     }

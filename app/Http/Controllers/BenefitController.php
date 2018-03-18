@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Recriuter;
+use App\Benefit;
 use Illuminate\Http\Request;
 
-class RecriuterController extends Controller
+class BenefitController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class RecriuterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Recriuter  $recriuter
+     * @param  \App\Benefit  $benefit
      * @return \Illuminate\Http\Response
      */
-    public function show(Recriuter $recriuter)
+    public function show(Benefit $benefit)
     {
         //
     }
@@ -52,10 +52,10 @@ class RecriuterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Recriuter  $recriuter
+     * @param  \App\Benefit  $benefit
      * @return \Illuminate\Http\Response
      */
-    public function edit(Recriuter $recriuter)
+    public function edit(Benefit $benefit)
     {
         //
     }
@@ -64,10 +64,10 @@ class RecriuterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Recriuter  $recriuter
+     * @param  \App\Benefit  $benefit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recriuter $recriuter)
+    public function update(Request $request, Benefit $benefit)
     {
         //
     }
@@ -75,10 +75,10 @@ class RecriuterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Recriuter  $recriuter
+     * @param  \App\Benefit  $benefit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recriuter $recriuter)
+    public function destroy(Benefit $benefit)
     {
         //
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRecriutersTable extends Migration
+class CreateRecruitersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateRecriutersTable extends Migration
      */
     public function up()
     {
-        Schema::create('recriuters', function (Blueprint $table) {
+        Schema::create('recruiters', function (Blueprint $table) {
             $table->unsignedInteger('user_id');
-            $table->string('first_name');
-            $table->string('last_name');
             $table->integer('lft');
             $table->integer('rgt');
+            $table->string('token')->unique();
             $table->timestamps();
 
             $table->foreign('user_id')
@@ -35,6 +34,6 @@ class CreateRecriutersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recriuters');
+        Schema::dropIfExists('recruiters');
     }
 }

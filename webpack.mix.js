@@ -12,4 +12,9 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+	.js('resources/assets/js/public.js', 'public/js')
+    //Creates vendor.js only if it doesnt exist
+    // .js('resources/assets/js/vendor.js', 'public/js', {
+    //    includePaths: ['node_modules']
+    // })
+    .sass('resources/assets/sass/app.scss', 'public/css');

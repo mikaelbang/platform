@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTagsTable extends Migration
+class CreateNewUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,15 @@ class CreateTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('new_users', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('category_id');
-            $table->string('name');
-            $table->string('slug')->unique()->nullable();
-            $table->integer('order')->nullable();
+            $table->string('email');
+            $table->unsignedInteger('department_id');
             $table->timestamps();
 
-            $table->foreign('category_id')
+            $table->foreign('department_id')
                 ->references('id')
-                ->on('categories');
+                ->on('departments');
         });
     }
 
@@ -34,6 +32,6 @@ class CreateTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('new_users');
     }
 }

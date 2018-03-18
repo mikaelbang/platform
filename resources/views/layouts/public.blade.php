@@ -17,15 +17,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                @guest
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                @else
-                    <a class="navbar-brand" href="{{ route('dashboard') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                @endguest
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Platform') }}
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -33,12 +27,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li>
-                            <a href="{{ route('ad.index') }}" class="nav-link">Ads</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('recruiter.ads') }}" class="nav-link">My shared Ads</a>
-                        </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -50,10 +39,9 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{ Auth::user()->firstname }} <span class="caret"></span>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a href="/my-account" class="dropdown-item">My account</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -78,6 +66,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/vendor.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/public.js') }}"></script>
 </body>
 </html>
