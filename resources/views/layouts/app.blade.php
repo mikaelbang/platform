@@ -53,7 +53,8 @@
                                     {{ Auth::user()->firstname }} <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a href="/my-account" class="dropdown-item">My account</a>
+                                    <a href="{{ route('recruiter.show') }}" class="dropdown-item">Profile</a>
+                                    <a href="{{ route('recruiter.network') }}" class="dropdown-item">My network</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

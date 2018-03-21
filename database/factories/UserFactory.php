@@ -32,7 +32,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 
 //Create REcruiter and company ads and then create user when they are created (if you can create child first...)
 
-$factory->define(App\Recriuter::class, function (Faker $faker) {
+$factory->define(App\Recruiter::class, function (Faker $faker) {
     $charid = strtoupper(md5(uniqid(rand(), true)));
     $token = substr($charid, 0, 8)
         .substr($charid, 8, 4)
@@ -43,8 +43,7 @@ $factory->define(App\Recriuter::class, function (Faker $faker) {
         'user_id' => function () {
             return factory('App\User')->create()->id;
         },
-        'lft' => 1,
-        'rgt' => 2,
+        'parent_id' => $faker->numberBetween(6,15),
         'token' => $token
     ];
 });

@@ -26,11 +26,9 @@ Route::get('/ad/{slug}', 'AdController@show')->middleware('auth')->name('ad.show
 
 //RecruiterController
 Route::get('/my-ads', 'RecruiterController@ads')->middleware('auth')->name('recruiter.ads');
-
-
-Route::get('/profiles/{username}', function() {
-	return \App\User::find(1);
-});
+Route::get('/profile', 'RecruiterController@show')->middleware('auth')->name('recruiter.show');
+Route::get('/profile/update', 'RecruiterController@update')->middleware('auth')->name('recruiter.update');
+Route::get('/my-network', 'RecruiterController@network')->middleware('auth')->name('recruiter.network');
 
 
 Route::get('/bootstrap', function() {

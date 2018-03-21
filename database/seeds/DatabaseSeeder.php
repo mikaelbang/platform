@@ -39,7 +39,10 @@ class DatabaseSeeder extends Seeder
         }
 
         //Recruiters
-		factory('App\Recriuter', 10)->create();
+		factory('App\Recruiter', 10)->create();
+
+        //Create tree from parent_id. Maybe breaks seed...
+        \App\Recruiter::rebuild();
 
         //Categories
         $categories = ['Development','Sales','Marketing','Finance'];

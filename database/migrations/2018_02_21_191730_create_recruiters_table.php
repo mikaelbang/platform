@@ -15,8 +15,10 @@ class CreateRecruitersTable extends Migration
     {
         Schema::create('recruiters', function (Blueprint $table) {
             $table->unsignedInteger('user_id');
-            $table->integer('lft');
-            $table->integer('rgt');
+            $table->integer('parent_id')->nullable()->index();
+            $table->integer('lft')->nullable()->index();
+            $table->integer('rgt')->nullable()->index();
+            $table->integer('depth')->nullable();
             $table->string('token')->unique();
             $table->timestamps();
 

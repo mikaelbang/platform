@@ -29,6 +29,18 @@ class RecruiterController extends Controller
         return view('ads', ['ads' => $ads]);
     }
 
+
+    /**
+     * Display a listing of a Recruiters network.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function network()
+    {
+        $network = auth()->user()->recruiter->getDescendants();
+        return view('network', ['recruiters' => $network]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -58,7 +70,7 @@ class RecruiterController extends Controller
      */
     public function show(Recruiter $recruiter)
     {
-        //
+        return view('profile', ['user' => auth()->user()]);
     }
 
     /**
