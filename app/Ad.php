@@ -34,6 +34,26 @@ class Ad extends Model
     }
 
     /**
+     * An Ad belongs to a Department.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function department()
+    {
+        return $this->belongsTo('App\Department');
+    }
+
+    /**
+     * Get Ads company via Department.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\hasManyThrough
+     */
+    public function company()
+    {
+        return $this->hasManyThrough('App\Company', 'App\Department');
+    }
+
+    /**
      * An Ad can have many Benefits.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -53,8 +73,8 @@ class Ad extends Model
      *
      * @return string
      */
-    // public function getRouteKeyName()
-    // {
-    //     return 'slug';
-    // }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

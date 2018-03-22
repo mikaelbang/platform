@@ -22,7 +22,8 @@ Route::get('/dashboard', 'HomeController@index')->middleware('auth')->name('dash
 
 //AdController
 Route::get('/ads', 'AdController@index')->middleware('auth')->name('ad.index');
-Route::get('/ad/{slug}', 'AdController@show')->middleware('auth')->name('ad.show');
+Route::get('/ad/{ad}', 'AdController@show')->middleware('auth')->name('ad.show');
+Route::get('/ad/shared/{ad}/{token}', 'AdController@shared')->name('ad.shared');
 
 //RecruiterController
 Route::get('/my-ads', 'RecruiterController@ads')->middleware('auth')->name('recruiter.ads');

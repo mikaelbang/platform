@@ -14,7 +14,7 @@ class AdController extends Controller
      */
     public function index()
     {
-        $ads = Ad::orderBy('id', 'desc')->get();
+        $ads = auth()->user()->recruiter ? Ad::orderBy('id', 'desc')->get() : auth()->user()->employee->ads;
         return view('ads', ['ads' => $ads]);
     }
 
@@ -45,9 +45,21 @@ class AdController extends Controller
      * @param  \App\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function show($slug,Ad $ad)
+    public function show(Ad $ad)
     {
-        return view('single-ad', ['ad' => $ad->getAd($slug)]);
+        return view('single-ad', ['ad' => $ad]);
+    }
+
+    /**
+     * Display the shared Ad.
+     *
+     * @param  \App\Ad  $ad
+     * @return \Illuminate\Http\Response
+     */
+    public function shared(Ad $ad, $token)
+    {
+
+        return view('single-ad', ['ad' => $ad, 'token' => $token]);
     }
 
     /**

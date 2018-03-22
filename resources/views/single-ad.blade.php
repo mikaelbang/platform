@@ -10,6 +10,11 @@
                     {{ $ad->description }}
                 </div>
             </div>
+            @if( isset($token) )
+                <p><a href="{{ route('ad.shared', ['ad' => $ad->slug, 'token' => auth()->user()->recruiter->token]) }}">Din länk</a></p>
+            @else
+                <button>Ansök</button>
+            @endif
         </div>
     </div>
 </div>

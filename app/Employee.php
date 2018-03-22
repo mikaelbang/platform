@@ -14,4 +14,9 @@ class Employee extends Model
     {
     	return $this->belongsToMany('App\Department', 'department_users', 'user_id', 'department_id');
     }
+
+    public function user()
+    {
+    	return $this->belongsTo('App\User');
+    }
 }

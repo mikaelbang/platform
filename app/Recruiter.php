@@ -7,6 +7,8 @@ use Baum\Node as BNode;
 
 class Recruiter extends BNode
 {
+    public $incrementing = false;
+
     protected $primaryKey = 'user_id';
 
     protected $with = ['user'];

@@ -33,12 +33,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li>
-                            <a href="{{ route('ad.index') }}" class="nav-link">Ads</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('recruiter.ads') }}" class="nav-link">My shared Ads</a>
-                        </li>
+                        @if(auth()->user()->recruiter)
+                            <li>
+                                <a href="{{ route('ad.index') }}" class="nav-link">Ads</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('recruiter.ads') }}" class="nav-link">My shared Ads</a>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ route('ad.index') }}" class="nav-link">Ads</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('company.ads') }}" class="nav-link">My shared Ads</a>
+                            </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
